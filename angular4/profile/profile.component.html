@@ -1,0 +1,16 @@
+<div style="margin-left:500px">
+  <h1>{{user.Name}}</h1>
+  <h2>{{user.Job}}</h2>
+  <button (click)="togglecheck()">Expand/Collapse</button>
+  <div *ngIf=!check>
+  <p>{{user.Address}}</p>
+  <div *ngIf="user.Phone.length>0">
+  <p>phone</p>
+    <!-- <p>{{user.Phone[0]}}</p> -->
+    <!-- <p>{{user.Phone[1]}}</p> -->
+    <p *ngFor="let phonenumber of user.Phone">{{phonenumber}}
+    
+    </p>
+  </div>
+  </div>
+</div>
