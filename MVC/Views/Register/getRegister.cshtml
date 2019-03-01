@@ -1,0 +1,99 @@
+﻿@model Mvc.Models.Register
+
+@{
+    ViewBag.Title = "getRegister";
+}
+
+<h2>getRegister</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Register</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Rname, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Rname)
+                @Html.ValidationMessageFor(model => model.Rname)
+            </div>
+        </div>
+
+       
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Raddress, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Raddress)
+                @Html.ValidationMessageFor(model => model.Raddress)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.courselist, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("courselist", new SelectList(Enum.GetNames(typeof(Mvc.Models.Course))), "--Select--")
+                @Html.ValidationMessageFor(model => model.courselist)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Gender, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.RadioButtonFor(g => g.Gender, "Male")@Html.Label("Male")
+                @Html.RadioButtonFor(g => g.Gender, "Female")@Html.Label("Female")
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Remail, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Remail)
+                @Html.ValidationMessageFor(model => model.Remail)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Rusername, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Rusername)
+                @Html.ValidationMessageFor(model => model.Rusername)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Rpassword, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Rpassword)
+                @Html.ValidationMessageFor(model => model.Rpassword)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Rconfirm, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Rconfirm)
+                @Html.ValidationMessageFor(model => model.Rconfirm)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Register" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
